@@ -1,0 +1,1 @@
+/home/abraham/Projects/jimenez-jewelry-theme/AGENTS.md
