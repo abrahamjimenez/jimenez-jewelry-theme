@@ -1,9 +1,11 @@
 {
   "general": {
     "404": "Not found",
+    "announcement_bar": "Announcement bar",
     "article": "Article",
     "block": "Block",
     "blog": "Blog",
+    "brand_story": "Brand story",
     "cart": "Cart",
     "collection": "Collection",
     "collections": "Collections",
@@ -13,12 +15,15 @@
     "column": "Column",
     "content": "Content",
     "custom_section": "Custom section",
+    "featured_collection": "Featured collection",
     "fonts": "Fonts",
     "footer": "Footer",
     "group": "Group",
     "header": "Header",
+    "hero": "Hero banner",
     "layout": "Layout",
     "main": "Main",
+    "newsletter": "Newsletter",
     "page": "Page",
     "password": "Password",
     "primary": "Primary",
@@ -29,26 +34,60 @@
     "section": "Section",
     "settings": "Settings",
     "sidebar": "Sidebar",
+    "testimonial": "Testimonial",
+    "testimonials": "Testimonials",
     "text": "Text",
     "theme": "Theme",
     "typography": "Typography"
   },
   "labels": {
+    "accent_color": "Accent color",
     "alignment": "Alignment",
-    "background": "Background",
-    "foreground": "Foreground",
+    "announcement_text": "Announcement text",
+    "author": "Author name",
+    "background": "Background color",
+    "body_text": "Body text",
+    "collection": "Collection",
+    "collection_title": "Section title",
+    "cta_text": "Button text",
+    "cta_url": "Button URL",
+    "customer_account_menu": "Customer account menu",
+    "discount_badge": "Discount badge text",
+    "email_placeholder": "Email placeholder",
+    "foreground": "Text color",
     "grid_gap": "Grid spacing",
     "grid_item_width": "Grid item width",
+    "heading_font": "Heading font",
+    "hero_image": "Hero image",
+    "image": "Image",
+    "image_position": "Image position",
     "input_corner_radius": "Input corner radius",
     "layout_direction": "Layout direction",
-    "menu": "Menu",
-    "customer_account_menu": "Customer account menu",
+    "menu": "Navigation menu",
+    "overlay_opacity": "Image overlay opacity",
     "padding": "Padding",
     "page_margin": "Page margin",
     "page_width": "Page width",
+    "products_to_show": "Products to show",
+    "quote": "Customer quote",
+    "rating": "Rating (1–5)",
+    "section_subtitle": "Subtitle",
+    "section_title": "Section title",
+    "show_announcement": "Show announcement bar",
+    "show_cta": "Show button",
+    "show_discount_badge": "Show discount badge",
     "show_payment_icons": "Show payment icons",
+    "show_social": "Show social media links",
+    "show_view_all": "Show 'View all' button",
+    "social_facebook": "Facebook URL",
+    "social_instagram": "Instagram URL",
+    "social_pinterest": "Pinterest URL",
+    "submit_text": "Subscribe button text",
+    "subtitle": "Subtitle",
+    "tagline": "Tagline",
     "text_style": "Text style",
-    "text": "Text"
+    "text": "Text",
+    "title": "Title"
   },
   "options": {
     "alignment": {
@@ -59,6 +98,10 @@
     "direction": {
       "horizontal": "Horizontal",
       "vertical": "Vertical"
+    },
+    "image_position": {
+      "left": "Image left",
+      "right": "Image right"
     },
     "page_width": {
       "narrow": "Narrow",
@@ -72,6 +115,6 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
-    },
+    }
   }
 }

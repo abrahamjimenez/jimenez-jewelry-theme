@@ -1,0 +1,162 @@
+{%- assign featured_collection = collections[section.settings.collection] -%}
+
+<div class="featured-collection" style="--columns: {{ section.settings.columns_desktop }}; --columns-mobile: {{ section.settings.columns_mobile }};">
+  <div class="section-header">
+    {%- if section.settings.subtitle != blank -%}
+      <span class="section-header__subtitle">{{ section.settings.subtitle }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="section-header__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+  </div>
+
+  <div class="featured-collection__grid">
+    {%- if featured_collection != blank -%}
+      {%- for product in featured_collection.products limit: section.settings.products_to_show -%}
+        <a href="{{ product.url }}" class="product-card">
+          <div class="product-card__image-wrapper">
+            {%- if product.featured_image -%}
+              {{ product.featured_image | image_url: width: 800, height: 800, crop: 'center' | image_tag: loading: 'lazy', alt: product.featured_image.alt | default: product.title }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+
+            {%- unless product.available -%}
+              <span class="product-card__badge">{{ 'product.sold_out' | t }}</span>
+            {%- endunless -%}
+          </div>
+
+          <div class="product-card__info">
+            <h3 class="product-card__title">{{ product.title | escape }}</h3>
+            <p class="product-card__price">
+              {%- if product.compare_at_price > product.price -%}
+                <s class="product-card__price--compare">{{ product.compare_at_price | money }}</s>
+              {%- endif -%}
+              <span>{{ product.price | money }}</span>
+            </p>
+          </div>
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for i in (1..section.settings.products_to_show) -%}
+        <div class="product-card product-card--placeholder">
+          <div class="product-card__image-wrapper">
+            {{ 'product-' | append: i | placeholder_svg_tag }}
+          </div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Earring name</h3>
+            <p class="product-card__price">$00.00</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_view_all and featured_collection != blank -%}
+    <div class="featured-collection__footer">
+      <a href="{{ featured_collection.url }}" class="btn btn--outline">
+        View all earrings
+      </a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .featured-collection {
+    padding: 5rem 0;
+  }
+
+  .featured-collection__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns-mobile, 2), 1fr);
+    gap: 1.5rem 1rem;
+  }
+
+  .featured-collection__footer {
+    text-align: center;
+    margin-top: 3.5rem;
+  }
+
+  .product-card__price--compare {
+    opacity: 0.5;
+    text-decoration: line-through;
+    margin-right: 0.375rem;
+  }
+
+  .product-card--placeholder .product-card__image-wrapper svg {
+    background-color: var(--color-surface);
+    opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    .featured-collection__grid {
+      grid-template-columns: repeat(var(--columns, 4), 1fr);
+      gap: 2rem 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.featured_collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:labels.subtitle",
+      "default": "Shop our collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:labels.title",
+      "default": "Our earrings"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:labels.collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "t:labels.products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 2,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "t:general.layout",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "t:general.layout",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "t:labels.show_view_all",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.featured_collection"
+    }
+  ]
+}
+{% endschema %}

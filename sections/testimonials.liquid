@@ -1,0 +1,93 @@
+<div class="testimonials" style="background-color: var(--color-surface);">
+  <div class="section-header">
+    {%- if section.settings.subtitle != blank -%}
+      <span class="section-header__subtitle">{{ section.settings.subtitle }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="section-header__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+  </div>
+
+  <div class="testimonials__grid">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .testimonials {
+    padding: 5rem 0;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 600px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.testimonials",
+  "blocks": [
+    { "type": "testimonial" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:labels.subtitle",
+      "default": "Customer love"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:labels.title",
+      "default": "What our customers say"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "These earrings are absolutely stunning. I get compliments every time I wear them. The quality is exceptional and they arrived beautifully packaged.",
+            "author": "Sofia M."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "I ordered a pair as a gift and the recipient was overjoyed. The attention to detail is remarkable. Will definitely be ordering more.",
+            "author": "Clara R."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Finally found earrings that are both beautiful and comfortable to wear all day. The craftsmanship is truly outstanding.",
+            "author": "Maria T."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

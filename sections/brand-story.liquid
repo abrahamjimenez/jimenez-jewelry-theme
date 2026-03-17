@@ -1,0 +1,155 @@
+<div class="brand-story brand-story--{{ section.settings.image_position }}">
+  <div class="brand-story__image-col">
+    {%- if section.settings.image -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.title, class: 'brand-story__image' }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'brand-story__placeholder' }}
+    {%- endif -%}
+  </div>
+
+  <div class="brand-story__content">
+    {%- if section.settings.subtitle != blank -%}
+      <span class="brand-story__subtitle">{{ section.settings.subtitle }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="brand-story__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.body_text != blank -%}
+      <div class="brand-story__body">{{ section.settings.body_text }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank -%}
+      <a href="{{ section.settings.cta_url | default: '#' }}" class="btn btn--outline">
+        {{ section.settings.cta_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .brand-story {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  .brand-story__image-col {
+    overflow: hidden;
+  }
+
+  .brand-story__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+
+  .brand-story__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: var(--color-surface);
+    opacity: 0.5;
+  }
+
+  .brand-story__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .brand-story__subtitle {
+    font-size: 0.6875rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .brand-story__title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.15;
+  }
+
+  .brand-story__body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-muted, #8c8680);
+    max-width: 520px;
+  }
+
+  @media (min-width: 768px) {
+    .brand-story {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+
+    .brand-story--right .brand-story__image-col {
+      order: 2;
+    }
+
+    .brand-story--right .brand-story__content {
+      order: 1;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.brand_story",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:labels.image_position",
+      "options": [
+        { "value": "left", "label": "t:options.image_position.left" },
+        { "value": "right", "label": "t:options.image_position.right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:labels.subtitle",
+      "default": "Our story"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:labels.title",
+      "default": "Crafted with love, worn with pride"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "t:labels.body_text",
+      "default": "<p>Each piece in our collection is individually handcrafted, ensuring that no two earrings are exactly alike. We believe jewelry is personal — an extension of who you are and what you love.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "t:labels.cta_text",
+      "default": "Learn our story"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "t:labels.cta_url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.brand_story"
+    }
+  ]
+}
+{% endschema %}

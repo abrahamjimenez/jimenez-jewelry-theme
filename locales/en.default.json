@@ -15,9 +15,11 @@
   },
   "cart": {
     "checkout": "Checkout",
-    "title": "Cart",
-    "update": "Update",
-    "remove": "Remove"
+    "title": "Your cart",
+    "update": "Update cart",
+    "remove": "Remove",
+    "empty": "Your cart is empty",
+    "continue_shopping": "Continue shopping"
   },
   "customers": {
     "login": {
@@ -30,6 +32,9 @@
   "collections": {
     "title": "Collections"
   },
+  "collection": {
+    "no_products": "No earrings found in this collection."
+  },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
     "card": "Gift card",
@@ -37,16 +42,29 @@
     "expires_on": "Expires on {{ expires_on }}",
     "use_at_checkout": "Use this gift card at checkout"
   },
+  "newsletter": {
+    "success": "Thank you for subscribing!"
+  },
   "password": {
     "title": "This shop is private",
     "password": "Password",
     "enter": "Enter"
   },
+  "product": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "quantity": "Quantity",
+    "select_variant": "Select an option",
+    "description_title": "About this piece",
+    "share": "Share this piece",
+    "sku": "SKU: {{ sku }}"
+  },
   "search": {
     "title": "Search",
-    "placeholder": "Search articles, pages, or products",
+    "placeholder": "Search earrings, articles, or pages",
     "submit": "Search",
-    "no_results_html": "No results found for {{ terms }}",
-    "results_for_html": "{{ count }} results found for {{ terms }}"
+    "no_results_html": "No results found for <em>{{ terms }}</em>",
+    "results_for_html": "{{ count }} results found for <em>{{ terms }}</em>"
   }
 }

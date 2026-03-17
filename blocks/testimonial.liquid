@@ -1,0 +1,101 @@
+{% doc %}
+  Renders an individual testimonial card with a quote, star rating, and author name.
+
+  @example
+  {% content_for 'block', type: 'testimonial', id: 'testimonial-1' %}
+{% enddoc %}
+
+<div class="testimonial" {{ block.shopify_attributes }}>
+  {%- assign rating = block.settings.rating | plus: 0 -%}
+  {%- if rating > 0 -%}
+    <div class="testimonial__stars" aria-label="{{ rating }} out of 5 stars">
+      {%- for i in (1..5) -%}
+        <span class="testimonial__star{% if i <= rating %} testimonial__star--filled{% endif %}">&#9733;</span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if block.settings.quote != blank -%}
+    <blockquote class="testimonial__quote">{{ block.settings.quote }}</blockquote>
+  {%- endif -%}
+
+  {%- if block.settings.author != blank -%}
+    <cite class="testimonial__author">— {{ block.settings.author }}</cite>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2.5rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+  }
+
+  .testimonial__stars {
+    display: flex;
+    gap: 0.125rem;
+  }
+
+  .testimonial__star {
+    font-size: 0.875rem;
+    color: var(--color-border);
+  }
+
+  .testimonial__star--filled {
+    color: var(--color-accent);
+  }
+
+  .testimonial__quote {
+    font-family: var(--font-heading--family, var(--font-primary--family));
+    font-size: 1.0625rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-foreground);
+    margin: 0;
+  }
+
+  .testimonial__author {
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted, #8c8680);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.testimonial",
+  "settings": [
+    {
+      "type": "range",
+      "id": "rating",
+      "label": "t:labels.rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "t:labels.quote",
+      "default": "These earrings are absolutely stunning. I get compliments every time I wear them. The quality is exceptional and they arrived beautifully packaged."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "t:labels.author",
+      "default": "Happy customer"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.testimonial"
+    }
+  ]
+}
+{% endschema %}

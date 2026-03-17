@@ -9,12 +9,95 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "subtitle": "Jimenez Jewelry",
+        "heading": "Handcrafted earrings",
+        "subheading": "Each piece is made with care and intention, designed to be worn for a lifetime.",
+        "cta_text": "Shop collection",
+        "overlay_opacity": 30,
+        "min_height": 85,
+        "content_alignment": "center"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "subtitle": "Shop our collection",
+        "title": "Our earrings",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_view_all": true
+      }
+    },
+    "brand-story": {
+      "type": "brand-story",
+      "settings": {
+        "subtitle": "Our story",
+        "title": "Crafted with love, worn with pride",
+        "body_text": "<p>Each piece in our collection is individually handcrafted, ensuring that no two earrings are exactly alike. We believe jewelry is personal — an extension of who you are and what you love.</p>",
+        "cta_text": "Learn our story",
+        "image_position": "left"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "subtitle": "Customer love",
+        "title": "What our customers say"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "These earrings are absolutely stunning. I get compliments every time I wear them. The quality is exceptional and they arrived beautifully packaged.",
+            "author": "Sofia M."
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "I ordered a pair as a gift and the recipient was overjoyed. The attention to detail is remarkable. Will definitely be ordering more.",
+            "author": "Clara R."
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Finally found earrings that are both beautiful and comfortable to wear all day. The craftsmanship is truly outstanding.",
+            "author": "Maria T."
+          }
+        }
+      },
+      "blocks_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "subtitle": "Stay connected",
+        "title": "Join the Jimenez family",
+        "body_text": "Subscribe for new arrivals, exclusive offers, and the stories behind our pieces.",
+        "show_discount_badge": true,
+        "discount_badge": "Get 10% off your first order",
+        "email_placeholder": "Your email address",
+        "submit_text": "Subscribe"
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "featured-collection",
+    "brand-story",
+    "testimonials",
+    "newsletter"
   ]
 }
