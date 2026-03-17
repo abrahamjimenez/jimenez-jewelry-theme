@@ -13,7 +13,7 @@
       "type": "hero",
       "settings": {
         "subtitle": "Jimenez Jewelry",
-        "heading": "Handcrafted earrings",
+        "heading": "Earrings for every occasion",
         "subheading": "Each piece is made with care and intention, designed to be worn for a lifetime.",
         "cta_text": "Shop collection",
         "overlay_opacity": 30,
@@ -37,7 +37,7 @@
       "settings": {
         "subtitle": "Our story",
         "title": "Crafted with love, worn with pride",
-        "body_text": "<p>Each piece in our collection is individually handcrafted, ensuring that no two earrings are exactly alike. We believe jewelry is personal — an extension of who you are and what you love.</p>",
+        "body_text": "<p>Each piece in our collection is carefully curated, ensuring that every earring meets our high standards for quality and style. We believe jewelry is personal — an extension of who you are and what you love.</p>",
         "cta_text": "Learn our story",
         "image_position": "left"
       }
